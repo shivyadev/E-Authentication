@@ -5,9 +5,8 @@ const User = require('./models/user');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
 const {router: authenticationRouter, sendOTPVerification} = require('./routes/authentication');
-
-
 const loginRecord = require('./models/loginrecord');
+const UserOTPVerification = require('./models/UserOTPVerification');
 
 mongoose.connect('mongodb+srv://shivanshtest:It7WaCCtNfxoqGcq@cluster0.c9hje4n.mongodb.net/?retryWrites=true&w=majority')
     .then(() => {
@@ -31,7 +30,7 @@ app.use(session({
 }));
 app.use(authenticationRouter);
 
-app.get('/', (req,res) => {
+app.get('/', async(req,res) => {
     res.render('index')
 })
 
@@ -49,16 +48,18 @@ app.post('/register', async (req,res) =>{
         password: hash,
         email,
         contact,
+        secret: "",
     })
-    await user.save();
     
+    await user.save();
+
     req.session.userId = user._id;
     if(authMethod === 'OTP'){
         sendOTPVerification(user,res);
         res.redirect('otp');
     }
     else
-        res.send("QR Not Available");
+        res.redirect('registerQR');
 })
 
 app.post('/login', async (req,res) =>{
@@ -74,15 +75,14 @@ app.post('/login', async (req,res) =>{
         }
 
         const validPassword = await bcrypt.compare(password, user.password);
-        
-        
+    
         if(validPassword){
             req.session.userId = user._id;
             if(req.body.authMethod === 'OTP'){
                 res.redirect('otp');
                 sendOTPVerification(user,res);
             }else{
-                res.send("QR Not Available");
+                res.redirect('/loginQR');
             }
         }
         else

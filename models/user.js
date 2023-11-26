@@ -24,6 +24,9 @@ const userSchema = new mongoose.Schema({
     contact: {
         type: String
     },
+    secret:{
+        type: String
+    }
 })
 
 module.exports = mongoose.model('User', userSchema);
