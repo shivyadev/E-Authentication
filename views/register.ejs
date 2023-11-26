@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/register.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="container main">
+        <div class="box">
+            <div class="text">
+                <h2>Register</h2>
+                <p>Fill the details to create your account.</p>
+                <hr>
+            </div>
+            <div class="form-container position-relative">
+                <form class="row g-3" action="/register" method="post">
+                    <div class="col-md-6">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" name="firstName" class="form-control" id="firstName" autocomplete="off">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" name="lastName" class="form-control" id="lastName" autocomplete="off">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" id="username" autocomplete="off">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="password" autocomplete="off">
+                    </div>
+                    <div class="col-7">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" id="email" autocomplete="off">
+                    </div>
+                    <div class="col-5">
+                        <label for="contact" class="form-label">Contact</label>
+                        <input type="text" name="contact" class="form-control" id="contact" autocomplete="off">
+                    </div>
+                    <select class="form-select" aria-label="Default select example" name="authMethod">
+                        <option selected>Select Authentication Method</option>
+                        <option value="QR">QR Authentication</option>
+                        <option value="OTP">OTP Authentication</option>
+                    </select>
+                    <div class="col-12 d-md-flex justify-content-center submit">
+                        <button class="btn btn-primary">Sign in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

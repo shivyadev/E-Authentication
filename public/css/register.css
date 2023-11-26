@@ -1,0 +1,57 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: url("./images/photo-1464618663641-bbdd760ae84a.avif") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.main{
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px 0 20px;
+    
+}
+
+.box{
+    width: 600px;
+    height: 550px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.3);
+    margin-top:20px;
+}
+
+
+.text{
+    margin: 10px;
+}
+
+.text h2{
+    font-family: 'Rockwell', 'san-serif';
+}
+
+.text hr{
+    border: #515ada solid 1px;
+}
+
+.form-container{
+    margin: 10px;
+    margin-top: 20px;
+}
+
+label{
+    font-size: 15px;
+}
+
+#form-check-box{
+    display: flex;
+    justify-content: space-evenly;
+}

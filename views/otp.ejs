@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/otp.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>OTP Auhtorization</title>
+</head>
+
+<body>
+    <div class="container-fluid d-md-flex justify-content-center align-items-center">
+        <div class="main">
+            <div class="text ">
+                <h3>Verification</h3>
+                <p>A <b>One Time Password</b> has been sent to your email.<br>Enter the OTP below to complete the
+                    verification
+                    process.</p>
+                <p>The otp will expire after 5 min.</p>
+            </div>
+            <div class="form-box d-md-flex align-items-center">
+                <form action="/otp" method="post" class="input-form">
+                    <div class="row g-3 align-items-center input-field">
+                        <div class="col-auto">
+                            <input type="text" name="otp" id="inputPassword6" class="form-control"
+                                aria-describedby="passwordHelpInline">
+                        </div>
+                    </div>
+                    <button class="input-button">Submit</button>
+                </form>
+                <form action="/resendOTP" method="post" class="resend-form">
+                    <p>Generate new <b>OTP</b> by <span><button class="resend">clicking here</button></span>.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
