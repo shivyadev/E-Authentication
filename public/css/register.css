@@ -1,57 +1,116 @@
-*{
-    font-family: 'Poppins', sans-serif;
-}
-
-body{
-    height: 100vh;
+html, body{
     margin: 0;
     padding: 0;
+    height: 100%;
     overflow: hidden;
-    background: url("./images/photo-1464618663641-bbdd760ae84a.avif") no-repeat center center fixed;
+    background: url("./images/70794809ac1ad01280d5b30860d7829d.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 
-.main{
-
-    display:flex;
+.container-fluid{
+    display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 20px 0 20px;
-    
+    height: 100%;
+    /* color: #f0fff0; */
 }
 
-.box{
-    width: 600px;
-    height: 550px;
+
+.register-box{
+    width: 60%;
+    height: 73%;
+    background-color: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
-    background: #fff;
     box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.3);
-    margin-top:20px;
 }
 
-
-.text{
-    margin: 10px;
+.register-box header{
+    display: flex;
+    justify-content: center;
 }
 
-.text h2{
-    font-family: 'Rockwell', 'san-serif';
+.register-box header h2{
+    color: #f0fff0;
+    text-align: center;
+    margin-top: 0px;
+    width: 90%;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f0fff0;
 }
 
-.text hr{
-    border: #515ada solid 1px;
-}
-
-.form-container{
-    margin: 10px;
-    margin-top: 20px;
-}
-
-label{
-    font-size: 15px;
-}
-
-#form-check-box{
+.form-box div{
     display: flex;
     justify-content: space-evenly;
+    margin: 20px;
+}
+
+input::placeholder{
+    color: #f0fff0;
+}
+
+select{
+    color: #f0fff0;
+}
+
+option{
+    color: black;
+}
+
+.name input, .user-details input{
+    width: 45%;
+    height: 50px;
+    padding: 20px;
+    border-radius: 50px;
+    border: #f0fff0 1px solid;
+    background: none;
+}
+
+
+.email input{
+    width: 100%;
+    margin: 20px;
+    margin-top: 5px;
+    height: 50px;
+    padding: 20px;
+    border-radius: 50px;
+    border: #f0fff0 1px solid;
+    background: none;
+}
+
+.select-field{
+    text-align: center;
+    width: 20%;
+    margin: 5px 20px 20px 10px;
+    height: 50px;
+    /* padding: 20px; */
+    border-radius: 50px;
+    border: #f0fff0 1px solid;
+    background: none;
+}
+
+.submit{
+    display: flex;
+    justify-content: center;
+    /* margin: 20px; */
+}
+
+.submit-button{
+    background: none;
+    width: 50%;
+    height: 50px;
+    margin: 0px 20px 20px 20px;
+    border: 1px #f0fff0 solid;
+    border-radius: 40px;
+    color: #f0fff0;
+    transition: 1s;
+}
+
+.submit-button:hover{
+    background-color: rgba(119,53,113,0.5)
+}
+
+input:focus, select:focus{
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    outline: none;
 }

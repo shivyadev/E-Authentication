@@ -31,7 +31,11 @@ app.use(session({
 app.use(authenticationRouter);
 
 app.get('/', async(req,res) => {
-    res.render('index')
+    res.render('index');
+})
+
+app.get('/login', (req,res) => {
+    res.render('login');
 })
 
 app.get('/register', (req,res) =>{
@@ -39,7 +43,7 @@ app.get('/register', (req,res) =>{
 })
 
 app.post('/register', async (req,res) =>{
-    const {firstName, lastName, username, password, email, contact, authMethod} = req.body;
+    const {firstName, lastName, username, password, email, authMethod} = req.body;
     const hash = await bcrypt.hash(password,12);
     const user = new User({
         firstName,
@@ -47,7 +51,6 @@ app.post('/register', async (req,res) =>{
         username,
         password: hash,
         email,
-        contact,
         secret: "",
     })
     
@@ -82,7 +85,7 @@ app.post('/login', async (req,res) =>{
                 res.redirect('otp');
                 sendOTPVerification(user,res);
             }else{
-                res.redirect('/loginQR');
+                res.redirect('loginQR');
             }
         }
         else
@@ -93,10 +96,16 @@ app.post('/login', async (req,res) =>{
     }
 })
 
-app.post('/logout', async (req,res) => {
+app.get('/logout', async (req,res) => {
     const currentTimeIST = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
     try{
-        await loginRecord.updateOne({userId: req.session.userId}, {$set: {logout: currentTimeIST}})
+        const latestLoginRecord = await loginRecord.findOne({userId: req.session.userId}).sort({time:-1});
+
+        if(latestLoginRecord)
+            await loginRecord.updateOne({_id: latestLoginRecord._id},{$set: {logout: currentTimeIST}});
+        else
+            throw Error('Missing Record');
+        
         console.log("Updated");
     }catch(error){
         console.log("Not updated");

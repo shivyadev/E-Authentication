@@ -1,0 +1,104 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: url("./images/taylor-friehl-6fRkksOejGc-unsplash.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container-fluid{
+    position: relative;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.text-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    width: 28%;
+    height: 40%;
+    border: 1px solid white;
+    color: white;
+    text-align: justify;
+}
+
+.text-box p{
+    margin: 10px;
+}
+
+.main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.input-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid black; */
+    height: 70%;
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.3);
+}
+
+header{
+    margin-top: 10px;
+    /* margin-bottom: 5px; */
+}
+
+.image{
+    margin: 5px 0 10px 0;
+}
+
+.text{
+    text-align: center;
+}
+
+.form-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+input{
+    width: 75%;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+
+input:focus{
+    /* box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); */
+    outline: 4px solid rgb(35, 117, 204);
+}
+
+.button{
+    width: 75%;
+    margin: 15px;
+}
+
+.submit{
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background: rgb(233,83,183);
+    transition: 0.5s;
+}
+
+.submit:hover{
+    background-color: rgb(180, 64, 142);
+}

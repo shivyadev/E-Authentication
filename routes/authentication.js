@@ -31,7 +31,8 @@ const createLoginRecord = async (userId) => {
         firstName: user.firstName,
         lastName: user.lastName,
         login: currentTimeIST,
-        logout: ""
+        logout: "",
+        time: new Date(),
     });
 
     await newloginRecord.save();
@@ -100,8 +101,6 @@ const verifyOTP = async(otp,userId,res) => {
         }
     }
 }
-
-
 
 router.get('/otp', (req,res) => {
 
@@ -173,7 +172,6 @@ router.post('/verifyQR', async (req,res) =>{
 
     try{
 
-
         const userId = req.session.userId;
         const { token } = req.body;
 
@@ -200,6 +198,8 @@ router.post('/verifyQR', async (req,res) =>{
 
     }catch(error){
         console.log(error);
+
+       
     }
 })
 

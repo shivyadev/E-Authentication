@@ -4,12 +4,12 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: url("./images/70794809ac1ad01280d5b30860d7829d.jpg") no-repeat center center fixed;
+    background: url("./images/luke-chesser-pJadQetzTkI-unsplash.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 
 .main{
-    background-color: #F3F3F3;
+    background-color: rgba(255, 255, 255, 0.5);
     display: flex;
     flex-direction: column;
     width: 400px;
@@ -48,7 +48,7 @@
 
 .input-button{
     height: 30px;
-    background-color: #bf32f1;
+    background-color: rgb(48,165,185);
     border: none;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -57,7 +57,7 @@
 }
 
 .input-button:hover{
-    background-color: #9619c2;
+    background-color: rgb(48,72,133);
 }
 
 .resend-form{

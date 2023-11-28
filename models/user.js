@@ -21,12 +21,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    contact: {
-        type: String
-    },
     secret:{
         type: String
-    }
+    },
 })
 
 module.exports = mongoose.model('User', userSchema);

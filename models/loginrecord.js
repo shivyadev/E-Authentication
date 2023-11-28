@@ -8,6 +8,7 @@ const loginRecordSchema = new Schema({
     lastName: String,
     login: String,
     logout: String,
+    time: Date,
 })
 
 module.exports = mongoose.model('loginRecord',loginRecordSchema);

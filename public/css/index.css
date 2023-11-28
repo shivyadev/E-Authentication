@@ -1,152 +1,76 @@
-*{
-    font-family: 'Poppins', sans-serif;
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    color: whitesmoke;
+
 }
 
-.wrapper{
-    background: #ececec;
-    padding: 0 20px 0 20px;
-}
-
-.main{
+#wrapper{
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    overflow: hidden;
+    background: url("./images/milad-fakurian-bexwsdM5BCw-unsplash.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 
-.row{
-    width: 900px;
-    height: 550px;
+#box{
+    box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.3);
     border-radius: 10px;
-    background: #fff;
-    box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.3);
+    width: 75%;
+    overflow: hidden;
+    background: url("./images/luke-chesser-IGtutkXikuc-unsplash.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: whitesmoke;
+}
+
+#main-bar{
+    color: whitesmoke;
+}
+
+#links{
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    transition: 0.5s;
 }
 
 
-.side-content{
-    background-color: aqua;
+#links:hover{
+    background-color: rgba(73,53,226,0.3);
+}
+
+#main{
+    height: 100%;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to bottom left, #1fa0a2, #d69f2a);
-}
-
-
-
-.side-content h1{
-    font-family: 'Rockwell', 'san-serif';
-    font-size: 25px;
-    margin-bottom: 30px;
-    padding: 30px;
-    border-bottom: 2px solid;
-    color: white;
-}
-
-.text p{
-    font-family: 'Hoefler Text';
-    color: #000;
-    font-size: 13px;;
-    text-align: center;
-    color: white;
-}
-
-
-.right{
-    display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 }
 
-.input-container{
-    display: flex;
-    flex-direction: column;
-}
-
-.input-box{
-    width: 330px;
-    box-sizing: border-box;
-    font-size: 13px;
-}
-
-
-.input-box header{
-    font-weight: 700;
+header h1{
     text-align: center;
-    margin-bottom: 45px;
-    font-size: 21px;
+    margin-top: 80px;
+    margin-bottom: 25px;
 }
 
-.input-field{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    padding: 0 10px 0 10px;
-}
-
-.input{
-    height: 40px;
-    width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(0,0,0,0.5);
-    outline: none;
-    margin-bottom: 20px;
-    color: #40414a;
-}
-
-.input-box .input-field label{
-    position: absolute;
-    top: -13px;
-    left: 10px;
-    pointer-events: none;
-    transition: .5s ease-in-out;
-}
-
-
-.checkbox{
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    flex-direction: column;
+.text{
+    width: auto;
+    /* background-color: azure; */
     text-align: center;
 }
 
-#form-check-box{
-    display: flex;
-    justify-content: space-evenly;
+#upper-p{
+    /* width: auto; */
+    padding: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
 }
 
-#method{
-    height: 35px;
+#lower-p{
+    margin: 40px 0 50px 0;
 }
-
-#submit{
-    width: 100%;
-    margin-top: 10px;
-}
-
-#submit:hover{
-    background: #1fa0a2;
-}
-
-.signin{
-    text-align: center;
-    font-size: small;
-    margin-top: 25px;
-}
-
-span a{
-    text-decoration: none;
-    font-weight: 700;
-
-    color: #000;
-    transition: .5s;
-}
-
-span a:hover{
-    text-decoration: underline;
-    color: #000;
-}
-
