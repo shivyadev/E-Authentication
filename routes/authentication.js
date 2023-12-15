@@ -46,8 +46,8 @@ const sendOTPVerification = async({_id: userId,email},res) => {
             from: EMAIL,
             to: email,
             subject: 'E-AUTHENTICATION OTP',
-            html: `<p>Your otp for E - Authentication is: ${otp}.<br> 
-            The otp will expire in 5 minutes.</p>`,
+            html: `<p>Your otp for E - Authentication is:</p> <h2>${otp} </h2> 
+            <p>The otp will expire in 5 minutes.</p>`,
         };
 
         const id = userId;
@@ -151,7 +151,6 @@ router.get('/registerQR', async (req,res) => {
 
         const temp_secret = speakeasy.generateSecret();
         const user = await User.findOne({_id: req.session.userId});
-
         user.secret = temp_secret.base32;
 
         const urlData = await QRcode.toDataURL(temp_secret.otpauth_url);
@@ -174,21 +173,14 @@ router.post('/verifyQR', async (req,res) =>{
 
         const userId = req.session.userId;
         const { token } = req.body;
-
-        console.log(token,userId);
-
         const user = await User.findOne({_id: userId});
         const secret = user.secret;
-
-        console.log(secret);
 
         const verified = speakeasy.totp.verify({
             secret,
             encoding: 'base32',
             token
         })
-
-        console.log(verified);
 
         if(!verified)
             throw Error("Unknown Token Value");
@@ -198,8 +190,6 @@ router.post('/verifyQR', async (req,res) =>{
 
     }catch(error){
         console.log(error);
-
-       
     }
 })
 
