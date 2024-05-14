@@ -4,17 +4,16 @@ const mongoose = require('mongoose');
 const User = require('./models/user');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+const {MONGO_URL} = require('./env');
 const {router: authenticationRouter, sendOTPVerification} = require('./routes/authentication');
 const loginRecord = require('./models/loginrecord');
 const UserOTPVerification = require('./models/UserOTPVerification');
 
-mongoose.connect('mongodb+srv://shivanshtest:It7WaCCtNfxoqGcq@cluster0.c9hje4n.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(MONGO_URL)
     .then(() => {
-        console.log("MONGO CONNECTION OPEN!!!")
     })
     .catch(err => {
-        console.log("OH NO MONGO CONNECTION ERROR!!!!")
-        console.log(err)
+        console.error(err)
     })
 
 
@@ -45,6 +44,7 @@ app.get('/register', (req,res) =>{
 app.post('/register', async (req,res) =>{
     const {firstName, lastName, username, password, email, authMethod} = req.body;
     const hash = await bcrypt.hash(password,12);
+    
     const user = new User({
         firstName,
         lastName,
@@ -72,13 +72,10 @@ app.post('/login', async (req,res) =>{
             throw Error('Missing Username')
         }
         const user = await User.findOne({username});
-        
         if(!user){
             throw Error("Invalid Username");
         }
-
         const validPassword = await bcrypt.compare(password, user.password);
-    
         if(validPassword){
             req.session.userId = user._id;
             if(req.body.authMethod === 'OTP'){
@@ -89,10 +86,9 @@ app.post('/login', async (req,res) =>{
             }
         }
         else
-            console.log('Try Again');
-        
+            console.error('Try Again');
     }catch(error){
-        console.log(error.message);
+        console.error(error.message);
     }
 })
 
@@ -106,9 +102,8 @@ app.get('/logout', async (req,res) => {
         else
             throw Error('Missing Record');
         
-        console.log("Updated");
     }catch(error){
-        console.log("Not updated");
+        console.error(error.message);
     }
     req.session.userId = null;
     res.redirect('/');
@@ -126,6 +121,4 @@ app.get('/loginrecord', async (req,res) => {
 })
 
 
-app.listen(3000, () =>{
-    console.log({ User })
-})
+app.listen(3000);

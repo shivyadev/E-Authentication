@@ -21,7 +21,6 @@ const createLoginRecord = async (userId) => {
     const user = await User.findOne({ _id: userId });
 
     if (!user) {
-        console.error('User not found for userId:', userId);
         throw Error("Misisng user");
     }
 
@@ -64,7 +63,7 @@ const sendOTPVerification = async({_id: userId,email},res) => {
         await transporter.sendMail(mailOptions);
 
     }catch(error){
-        console.log(`${error.message}`);
+        console.error(`${error.message}`);
     }
 }
 
@@ -105,7 +104,7 @@ const verifyOTP = async(otp,userId,res) => {
 router.get('/otp', (req,res) => {
 
     if(!req.session){
-        console.log("ERORRRRRR");
+        console.error('Session Not Available');
     }
 
     if(!req.session.userId)
@@ -141,7 +140,7 @@ router.post('/resendOTP', async (req,res) =>{
             res.redirect('/otp');
         }
     }catch(error) {
-        console.log('Error: ',error.message);
+        console.error('Error: ',error.message);
     }
 })
 
@@ -159,7 +158,7 @@ router.get('/registerQR', async (req,res) => {
         res.render('registerQR', {urlData : urlData});
 
     }catch(error){
-        console.log(error);
+        console.error(error);
     }
 })
 
@@ -189,7 +188,7 @@ router.post('/verifyQR', async (req,res) =>{
         res.redirect("loginrecord");
 
     }catch(error){
-        console.log(error);
+        console.error(error);
     }
 })
 
